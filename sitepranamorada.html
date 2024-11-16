@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para o Amor da Minha Vida</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400&family=Lobster&display=swap" rel="stylesheet"> <!-- Importando as fontes -->
+    <style>
+        /* Estilos Gerais */
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f7e7d9; /* Fundo bege claro */
+            font-family: 'Quicksand', sans-serif; /* Usando a fonte importada para o corpo */
+            transition: all 0.5s; /* Transição suave para os efeitos */
+            padding: 0 20px; /* Espaçamento nas laterais do corpo */
+        }
+
+        /* Título fixo no topo */
+        h1 {
+            font-size: 2rem; /* Tamanho maior para o título */
+            color: #7b4aab; /* Roxo */
+            text-align: center;
+            margin: 20px 0;
+            width: 100%;
+            padding: 10px 0;
+            background-color: #f7e7d9; /* Mantém o fundo */
+            font-family: 'Lobster', cursive; /* Fonte amorosa para o título */
+            font-weight: normal; /* Fonte normal */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Sombra suave para o título */
+        }
+
+        /* Estilo do mosaico */
+        .mosaic {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        /* Estilo das imagens */
+        .mosaic img {
+            width: 200px; /* Largura fixa */
+            height: 200px; /* Altura fixa para quadrado */
+            object-fit: cover; /* Corta a imagem para caber no quadrado */
+            border-radius: 10px; /* Cantos arredondados */
+            margin: 10px 0; /* Espaçamento entre as imagens */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animação suave */
+        }
+
+        /* Efeito ao passar o mouse */
+        .mosaic img:hover {
+            transform: scale(1.05); /* Aumenta a imagem */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra ao redor */
+        }
+
+        /* Mensagem romântica com a fonte amorosa */
+        .message {
+            font-size: 1.2rem; /* Tamanho da fonte reduzido */
+            color: #7b4aab; /* Roxo */
+            text-align: justify; /* Justifica o texto */
+            margin-top: 20px;
+            padding: 10px 20px; /* Adicionando espaçamento interno */
+            line-height: 1.6; /* Espaçamento entre linhas */
+            font-family: 'Lobster', cursive; /* Fonte amorosa para a mensagem */
+            position: relative; /* Para manter o fundo atrás */
+            z-index: 1; /* Para estar acima do fundo escuro */
+            background-color: white; /* Fundo branco para a mensagem */
+            border-radius: 10px; /* Cantos arredondados */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destacar */
+            max-width: 90%; /* Largura máxima da mensagem */
+            margin: 0 auto; /* Centraliza a mensagem */
+        }
+
+        /* Estilos dos botões */
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+            z-index: 1; /* Para estar acima do fundo escuro */
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1rem;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .yes-button {
+            background-color: #4CAF50; /* Verde */
+        }
+
+        .no-button {
+            background-color: #f44336; /* Vermelho */
+        }
+
+        .no-button:hover {
+            background-color: #d32f2f; /* Vermelho escuro ao passar o mouse */
+        }
+
+        /* Coração quebrado */
+        .broken-heart {
+            display: none; /* Esconde por padrão */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 5rem;
+            color: #f44336; /* Vermelho */
+            z-index: 2; /* Acima da tela escura */
+        }
+
+        /* Efeito de escurecimento */
+        .dark-screen {
+            display: none; /* Esconde por padrão */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black; /* Fundo preto */
+            z-index: 999; /* Para estar sobre todos os outros elementos */
+            transition: opacity 1s; /* Efeito de desvanecimento */
+        }
+
+        .dark-screen.visible {
+            display: block; /* Mostra a tela escura */
+            opacity: 1; /* Opacidade total */
+        }
+
+        /* Oculta todo o conteúdo */
+        .content-hidden {
+            opacity: 0; /* Faz o conteúdo desaparecer */
+            transition: opacity 1s; /* Transição suave */
+        }
+
+        /* Esconde o iframe visualmente mas mantém a reprodução do áudio */
+        iframe {
+            visibility: hidden; /* Torna o iframe invisível */
+            width: 0; /* Remove a largura */
+            height: 0; /* Remove a altura */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Título fixo no topo -->
+    <h1>Meu Refúgio</h1>
+
+    <!-- Seção de fotos em mosaico -->
+<div class="mosaic">
+    <img src="https://i.postimg.cc/d7QDMQSR/IMG-20241109-WA0043.jpg" alt="Descrição da foto 1">
+    <img src="https://i.postimg.cc/1gWXyxLk/Screenshot-20241109-092310-Free-Fire.jpg" alt="Descrição da foto 2">
+    <img src="https://i.postimg.cc/vDVjDjGn/IMG-20241105-WA0046.jpg" alt="Descrição da foto 5">
+        <img src="https://i.postimg.cc/cgWCwRGM/Screenshot-20241113-030744-Roblox.jpg" alt="Screenshot-20241113-030744-Roblox"/>
+    <img src="https://i.postimg.cc/K4kmLP7X/IMG-20241102-WA0053.jpg" alt="Descrição da foto 3">
+    <img src="https://i.postimg.cc/JHkmL877/IMG-20241102-WA0054.jpg" alt="Descrição da foto 4">
+    <img src="https://i.postimg.cc/w3tZz736/VID-20241110-WA0016-exported-1050.jpg" border="0" alt="VID-20241110-WA0016-exported-1050"/>
+    <img src="https://i.postimg.cc/94ZzDxKQ/VID-20241111-WA0045-exported-1066.jpg" alt="VID-20241111-WA0045-exported-1066"/>
+</div>
+
+
+
+    <!-- Mensagem romântica -->
+    <div class="message">
+        (antes de começar eu queria falar que esse texto nao é da internet, eu fiz com letras maiusculas pra ficar bonitinho blz amor) Eu queria começar falando que no começo a gente teve uma relação meio conturbada e ruim mas ainda bem que voltamos a nos falar e deu tudo certo. E espero em que continue dando, você é uma pessoa incrível, linda, cuidadosa, amorosa e me ajuda da sua forma.<br><br>
+        Mesmo com essa distância que a gente tem eu não quero desistir de você nunca mais. Eu quero que dê certo cada vez mais e que nosso amor só se intensifique, apesar da distância eu não vou desistir da gente e vou tentar fazer acontecer.<br><br>
+        Você foi a pessoa mais incrível que eu conheci em toda a minha vida e tenho certeza que quero viver ao seu lado pra sempre. Antes de você chegar tava tudo horrível, cinza, lixo, merda, coco, mas isso mudou quando eu te conheci.<br><br>
+        Eu quero casar com você e eu te amo mais que a minha própria vida. Por mim a gente vai casar, ter 2 filhos e seu gato, eu vou fazer acontecer, espero que você faça também.<br><br>
+        No começo não foi um dos melhores relacionamentos mas ainda bem que não desistimos, se não eu não estaria fazendo esse site hoje. Espero que você nunca se esqueça que conseguiu mudar a minha vida como ninguém conseguiu. Você é uma pessoa incrível, eu te amo tanto que faria tudo por você :), eu te amo tanto, talvez até mais do que alguém consiga amar outra pessoa.
+    </div>
+
+    <!-- Pergunta "Você me ama?" -->
+    <div class="button-container">
+        <h2>Você me ama?</h2>
+        <button class="yes-button" onclick="redirectToWhatsApp()">Sim</button>
+        <button class="no-button" onclick="showBrokenHeart()">Não</button>
+    </div>
+
+    <!-- Coração quebrado -->
+    <div class="broken-heart">💔</div>
+    <div class="dark-screen" id="darkScreen"></div>
+
+    <!-- Áudio que começa automaticamente -->
+    <div>
+        <iframe src="https://vocaroo.com/embed/1e0jwWfbLw5T?autoplay=1" frameborder="0" allow="autoplay"></iframe>
+    </div>
+
+    <script>
+        function redirectToWhatsApp() {
+            window.location.href = "https://wa.me/5511932833569"; // Substitua com o número de WhatsApp desejado
+        }
+
+        function showBrokenHeart() {
+            document.querySelector('.broken-heart').style.display = 'block'; // Exibe o coração partido
+            document.getElementById('darkScreen').classList.add('visible'); // Mostra a tela escura
+            document.querySelector('.content-hidden').classList.add('content-hidden'); // Esconde o conteúdo
+        }
+    </script>
+
+</body>
+</html>
